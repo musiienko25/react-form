@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./form.css";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -48,9 +49,9 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label>Name</label>
           <input
             type="text"
@@ -58,9 +59,9 @@ const Form = () => {
             value={formData.name}
             onChange={handleChange}
           />
-          {errors.name && <p>{errors.name}</p>}
+          {errors.name && <p className="error">{errors.name}</p>}
         </div>
-        <div>
+        <div className="form-group">
           <label>Email</label>
           <input
             type="email"
@@ -68,21 +69,21 @@ const Form = () => {
             value={formData.email}
             onChange={handleChange}
           />
-          {errors.email && <p>{errors.email}</p>}
+          {errors.email && <p className="error">{errors.email}</p>}
         </div>
-        <div>
+        <div className="form-group">
           <label>Message</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
           />
-          {errors.message && <p>{errors.message}</p>}
+          {errors.message && <p className="error">{errors.message}</p>}
         </div>
         <button type="submit">Submit</button>
       </form>
       {submittedData && (
-        <div>
+        <div className="submitted-data">
           <h2>Submitted Data</h2>
           <p>Name: {submittedData.name}</p>
           <p>Email: {submittedData.email}</p>
